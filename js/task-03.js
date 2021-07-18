@@ -15,12 +15,16 @@ alt: 'Group of Horses Running',
 
 const gallery = document.querySelector('#gallery');
 
+const elementsArr = [];
+
 const makeGallery = function (images) {
-    let result = '';
-    for (let {url, alt} of images) {
-    result = gallery.insertAdjacentHTML('beforeend', `<li><img src = "${url}" alt = "${alt}"></li>`)
+    let galleryEl = '';
+    for (let { url, alt } of images) {
+        galleryEl = `<li><img src = "${url}" alt = "${alt}"></li>`;
+        elementsArr.push(galleryEl);
     };
-    return result;
+
+    gallery.insertAdjacentHTML('beforeend', elementsArr.join(''))
 }
 
 makeGallery(images);
